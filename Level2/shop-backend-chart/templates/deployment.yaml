@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shop-backend
+  labels:
+    app: shop-backend
+spec:
+  replicas: {{ .Values.replicaCount }}  # Number of replicas
+  selector:
+    matchLabels:
+      app: shop-backend
+  template:
+    metadata:
+      labels:
+        app: shop-backend
+    spec:
+      containers:
+      - name: shop-backend
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"  # Container image
+        ports:
+        - containerPort: {{ .Values.service.port }}  
+        livenessProbe:
+        #Liveness and Readiness Probes should use httpGet, instead tcpsocket,
+          httpGet:
+            path: {{ .Values.livenessProbe.path }}  
+            port: {{ .Values.livenessProbe.port }}  
+          initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}  
+          periodSeconds: {{ .Values.livenessProbe.periodSeconds }}  
+          timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}  
+          failureThreshold: {{ .Values.livenessProbe.failureThreshold }}  
+        readinessProbe:
+          httpGet:
+            path: {{ .Values.readinessProbe.path }}  
+            port: {{ .Values.readinessProbe.port }}  
+          initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}  
+          periodSeconds: {{ .Values.readinessProbe.periodSeconds }}  
+          timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}  
+          failureThreshold: {{ .Values.readinessProbe.failureThreshold }}  

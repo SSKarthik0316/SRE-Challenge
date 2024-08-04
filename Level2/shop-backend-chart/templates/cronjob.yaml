@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello-world-cronjob
+spec:
+  schedule: "{{ .Values.cronjob.schedule }}"  # Cron job schedule
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello-world
+            image: "{{ .Values.cronjob.image.repository }}:{{ .Values.cronjob.image.tag }}"  
+            command: {{ .Values.cronjob.command | toYaml | nindent 12 }}  
+            args: {{ .Values.cronjob.args | toYaml | nindent 12 }}  
+          restartPolicy: OnFailure  

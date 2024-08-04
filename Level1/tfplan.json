@@ -1,0 +1,870 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.5.0",
+  "variables": {
+    "access_tier": {
+      "value": "Hot"
+    },
+    "account_replication_type": {
+      "value": "LRS"
+    },
+    "account_tier": {
+      "value": "Standard"
+    },
+    "container_access_type": {
+      "value": "private"
+    },
+    "container_name": {
+      "value": "sre"
+    },
+    "location": {
+      "value": "westeurope"
+    },
+    "resource_group_name": {
+      "value": "sre-challenge-flashenpost"
+    },
+    "storage_account_name": {
+      "value": "srechallengesforfp"
+    },
+    "tags": {
+      "value": {
+        "department": "SRE"
+      }
+    }
+  },
+  "planned_values": {
+    "outputs": {
+      "container_id": {
+        "sensitive": false
+      },
+      "storage_account_id": {
+        "sensitive": false
+      },
+      "storage_account_primary_access_key": {
+        "sensitive": true
+      },
+      "storage_account_primary_connection_string": {
+        "sensitive": true
+      }
+    },
+    "root_module": {
+      "child_modules": [
+        {
+          "resources": [
+            {
+              "address": "module.resource_group.azurerm_resource_group.Resource_Group",
+              "mode": "managed",
+              "type": "azurerm_resource_group",
+              "name": "Resource_Group",
+              "provider_name": "registry.terraform.io/hashicorp/azurerm",
+              "schema_version": 0,
+              "values": {
+                "location": "westeurope",
+                "managed_by": null,
+                "name": "sre-challenge-flashenpost",
+                "tags": {
+                  "department": "SRE"
+                },
+                "timeouts": null
+              },
+              "sensitive_values": {
+                "tags": {}
+              }
+            }
+          ],
+          "address": "module.resource_group"
+        },
+        {
+          "resources": [
+            {
+              "address": "module.storage_account.azurerm_storage_account.storageaccount",
+              "mode": "managed",
+              "type": "azurerm_storage_account",
+              "name": "storageaccount",
+              "provider_name": "registry.terraform.io/hashicorp/azurerm",
+              "schema_version": 4,
+              "values": {
+                "access_tier": "Hot",
+                "account_kind": "StorageV2",
+                "account_replication_type": "LRS",
+                "account_tier": "Standard",
+                "allow_nested_items_to_be_public": true,
+                "allowed_copy_scope": null,
+                "azure_files_authentication": [],
+                "cross_tenant_replication_enabled": true,
+                "custom_domain": [],
+                "customer_managed_key": [],
+                "default_to_oauth_authentication": false,
+                "dns_endpoint_type": "Standard",
+                "edge_zone": null,
+                "identity": [],
+                "immutability_policy": [],
+                "infrastructure_encryption_enabled": false,
+                "is_hns_enabled": false,
+                "local_user_enabled": true,
+                "location": "westeurope",
+                "min_tls_version": "TLS1_2",
+                "name": "srechallengesforfp",
+                "nfsv3_enabled": false,
+                "public_network_access_enabled": true,
+                "queue_encryption_key_type": "Service",
+                "resource_group_name": "sre-challenge-flashenpost",
+                "sas_policy": [],
+                "sftp_enabled": false,
+                "shared_access_key_enabled": true,
+                "static_website": [],
+                "table_encryption_key_type": "Service",
+                "tags": {
+                  "department": "SRE"
+                },
+                "timeouts": null
+              },
+              "sensitive_values": {
+                "azure_files_authentication": [],
+                "blob_properties": [],
+                "custom_domain": [],
+                "customer_managed_key": [],
+                "identity": [],
+                "immutability_policy": [],
+                "network_rules": [],
+                "queue_properties": [],
+                "routing": [],
+                "sas_policy": [],
+                "share_properties": [],
+                "static_website": [],
+                "tags": {}
+              }
+            }
+          ],
+          "address": "module.storage_account"
+        },
+        {
+          "resources": [
+            {
+              "address": "module.storage_container.azurerm_storage_container.Storage_Container",
+              "mode": "managed",
+              "type": "azurerm_storage_container",
+              "name": "Storage_Container",
+              "provider_name": "registry.terraform.io/hashicorp/azurerm",
+              "schema_version": 1,
+              "values": {
+                "container_access_type": "private",
+                "encryption_scope_override_enabled": true,
+                "name": "sre",
+                "storage_account_name": "srechallengesforfp",
+                "timeouts": null
+              },
+              "sensitive_values": {
+                "metadata": {}
+              }
+            }
+          ],
+          "address": "module.storage_container"
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "module.resource_group.azurerm_resource_group.Resource_Group",
+      "module_address": "module.resource_group",
+      "mode": "managed",
+      "type": "azurerm_resource_group",
+      "name": "Resource_Group",
+      "provider_name": "registry.terraform.io/hashicorp/azurerm",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "location": "westeurope",
+          "managed_by": null,
+          "name": "sre-challenge-flashenpost",
+          "tags": {
+            "department": "SRE"
+          },
+          "timeouts": null
+        },
+        "after_unknown": {
+          "id": true,
+          "tags": {}
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "tags": {}
+        }
+      }
+    },
+    {
+      "address": "module.storage_account.azurerm_storage_account.storageaccount",
+      "module_address": "module.storage_account",
+      "mode": "managed",
+      "type": "azurerm_storage_account",
+      "name": "storageaccount",
+      "provider_name": "registry.terraform.io/hashicorp/azurerm",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "access_tier": "Hot",
+          "account_kind": "StorageV2",
+          "account_replication_type": "LRS",
+          "account_tier": "Standard",
+          "allow_nested_items_to_be_public": true,
+          "allowed_copy_scope": null,
+          "azure_files_authentication": [],
+          "cross_tenant_replication_enabled": true,
+          "custom_domain": [],
+          "customer_managed_key": [],
+          "default_to_oauth_authentication": false,
+          "dns_endpoint_type": "Standard",
+          "edge_zone": null,
+          "identity": [],
+          "immutability_policy": [],
+          "infrastructure_encryption_enabled": false,
+          "is_hns_enabled": false,
+          "local_user_enabled": true,
+          "location": "westeurope",
+          "min_tls_version": "TLS1_2",
+          "name": "srechallengesforfp",
+          "nfsv3_enabled": false,
+          "public_network_access_enabled": true,
+          "queue_encryption_key_type": "Service",
+          "resource_group_name": "sre-challenge-flashenpost",
+          "sas_policy": [],
+          "sftp_enabled": false,
+          "shared_access_key_enabled": true,
+          "static_website": [],
+          "table_encryption_key_type": "Service",
+          "tags": {
+            "department": "SRE"
+          },
+          "timeouts": null
+        },
+        "after_unknown": {
+          "azure_files_authentication": [],
+          "blob_properties": true,
+          "custom_domain": [],
+          "customer_managed_key": [],
+          "enable_https_traffic_only": true,
+          "https_traffic_only_enabled": true,
+          "id": true,
+          "identity": [],
+          "immutability_policy": [],
+          "large_file_share_enabled": true,
+          "network_rules": true,
+          "primary_access_key": true,
+          "primary_blob_connection_string": true,
+          "primary_blob_endpoint": true,
+          "primary_blob_host": true,
+          "primary_blob_internet_endpoint": true,
+          "primary_blob_internet_host": true,
+          "primary_blob_microsoft_endpoint": true,
+          "primary_blob_microsoft_host": true,
+          "primary_connection_string": true,
+          "primary_dfs_endpoint": true,
+          "primary_dfs_host": true,
+          "primary_dfs_internet_endpoint": true,
+          "primary_dfs_internet_host": true,
+          "primary_dfs_microsoft_endpoint": true,
+          "primary_dfs_microsoft_host": true,
+          "primary_file_endpoint": true,
+          "primary_file_host": true,
+          "primary_file_internet_endpoint": true,
+          "primary_file_internet_host": true,
+          "primary_file_microsoft_endpoint": true,
+          "primary_file_microsoft_host": true,
+          "primary_location": true,
+          "primary_queue_endpoint": true,
+          "primary_queue_host": true,
+          "primary_queue_microsoft_endpoint": true,
+          "primary_queue_microsoft_host": true,
+          "primary_table_endpoint": true,
+          "primary_table_host": true,
+          "primary_table_microsoft_endpoint": true,
+          "primary_table_microsoft_host": true,
+          "primary_web_endpoint": true,
+          "primary_web_host": true,
+          "primary_web_internet_endpoint": true,
+          "primary_web_internet_host": true,
+          "primary_web_microsoft_endpoint": true,
+          "primary_web_microsoft_host": true,
+          "queue_properties": true,
+          "routing": true,
+          "sas_policy": [],
+          "secondary_access_key": true,
+          "secondary_blob_connection_string": true,
+          "secondary_blob_endpoint": true,
+          "secondary_blob_host": true,
+          "secondary_blob_internet_endpoint": true,
+          "secondary_blob_internet_host": true,
+          "secondary_blob_microsoft_endpoint": true,
+          "secondary_blob_microsoft_host": true,
+          "secondary_connection_string": true,
+          "secondary_dfs_endpoint": true,
+          "secondary_dfs_host": true,
+          "secondary_dfs_internet_endpoint": true,
+          "secondary_dfs_internet_host": true,
+          "secondary_dfs_microsoft_endpoint": true,
+          "secondary_dfs_microsoft_host": true,
+          "secondary_file_endpoint": true,
+          "secondary_file_host": true,
+          "secondary_file_internet_endpoint": true,
+          "secondary_file_internet_host": true,
+          "secondary_file_microsoft_endpoint": true,
+          "secondary_file_microsoft_host": true,
+          "secondary_location": true,
+          "secondary_queue_endpoint": true,
+          "secondary_queue_host": true,
+          "secondary_queue_microsoft_endpoint": true,
+          "secondary_queue_microsoft_host": true,
+          "secondary_table_endpoint": true,
+          "secondary_table_host": true,
+          "secondary_table_microsoft_endpoint": true,
+          "secondary_table_microsoft_host": true,
+          "secondary_web_endpoint": true,
+          "secondary_web_host": true,
+          "secondary_web_internet_endpoint": true,
+          "secondary_web_internet_host": true,
+          "secondary_web_microsoft_endpoint": true,
+          "secondary_web_microsoft_host": true,
+          "share_properties": true,
+          "static_website": [],
+          "tags": {}
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "azure_files_authentication": [],
+          "blob_properties": [],
+          "custom_domain": [],
+          "customer_managed_key": [],
+          "identity": [],
+          "immutability_policy": [],
+          "network_rules": [],
+          "primary_access_key": true,
+          "primary_blob_connection_string": true,
+          "primary_connection_string": true,
+          "queue_properties": [],
+          "routing": [],
+          "sas_policy": [],
+          "secondary_access_key": true,
+          "secondary_blob_connection_string": true,
+          "secondary_connection_string": true,
+          "share_properties": [],
+          "static_website": [],
+          "tags": {}
+        }
+      }
+    },
+    {
+      "address": "module.storage_container.azurerm_storage_container.Storage_Container",
+      "module_address": "module.storage_container",
+      "mode": "managed",
+      "type": "azurerm_storage_container",
+      "name": "Storage_Container",
+      "provider_name": "registry.terraform.io/hashicorp/azurerm",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "container_access_type": "private",
+          "encryption_scope_override_enabled": true,
+          "name": "sre",
+          "storage_account_name": "srechallengesforfp",
+          "timeouts": null
+        },
+        "after_unknown": {
+          "default_encryption_scope": true,
+          "has_immutability_policy": true,
+          "has_legal_hold": true,
+          "id": true,
+          "metadata": true,
+          "resource_manager_id": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "metadata": {}
+        }
+      }
+    }
+  ],
+  "output_changes": {
+    "container_id": {
+      "actions": [
+        "create"
+      ],
+      "before": null,
+      "after_unknown": true,
+      "before_sensitive": false,
+      "after_sensitive": false
+    },
+    "storage_account_id": {
+      "actions": [
+        "create"
+      ],
+      "before": null,
+      "after_unknown": true,
+      "before_sensitive": false,
+      "after_sensitive": false
+    },
+    "storage_account_primary_access_key": {
+      "actions": [
+        "create"
+      ],
+      "before": null,
+      "after_unknown": true,
+      "before_sensitive": true,
+      "after_sensitive": true
+    },
+    "storage_account_primary_connection_string": {
+      "actions": [
+        "create"
+      ],
+      "before": null,
+      "after_unknown": true,
+      "before_sensitive": true,
+      "after_sensitive": true
+    }
+  },
+  "configuration": {
+    "provider_config": {
+      "azurerm": {
+        "name": "azurerm",
+        "full_name": "registry.terraform.io/hashicorp/azurerm",
+        "version_constraint": "~> 3.0",
+        "expressions": {
+          "features": [
+            {}
+          ]
+        }
+      }
+    },
+    "root_module": {
+      "outputs": {
+        "container_id": {
+          "expression": {
+            "references": [
+              "module.storage_container.id",
+              "module.storage_container"
+            ]
+          }
+        },
+        "storage_account_id": {
+          "expression": {
+            "references": [
+              "module.storage_account.id",
+              "module.storage_account"
+            ]
+          }
+        },
+        "storage_account_primary_access_key": {
+          "sensitive": true,
+          "expression": {
+            "references": [
+              "module.storage_account.primary_access_key",
+              "module.storage_account"
+            ]
+          }
+        },
+        "storage_account_primary_connection_string": {
+          "sensitive": true,
+          "expression": {
+            "references": [
+              "module.storage_account.primary_connection_string",
+              "module.storage_account"
+            ]
+          }
+        }
+      },
+      "module_calls": {
+        "resource_group": {
+          "source": "./modules/resource_group",
+          "expressions": {
+            "location": {
+              "references": [
+                "var.location"
+              ]
+            },
+            "name": {
+              "references": [
+                "var.resource_group_name"
+              ]
+            },
+            "tags": {
+              "references": [
+                "var.tags"
+              ]
+            }
+          },
+          "module": {
+            "outputs": {
+              "location": {
+                "expression": {
+                  "references": [
+                    "azurerm_resource_group.Resource_Group.location",
+                    "azurerm_resource_group.Resource_Group"
+                  ]
+                }
+              },
+              "name": {
+                "expression": {
+                  "references": [
+                    "azurerm_resource_group.Resource_Group.name",
+                    "azurerm_resource_group.Resource_Group"
+                  ]
+                }
+              }
+            },
+            "resources": [
+              {
+                "address": "azurerm_resource_group.Resource_Group",
+                "mode": "managed",
+                "type": "azurerm_resource_group",
+                "name": "Resource_Group",
+                "provider_config_key": "azurerm",
+                "expressions": {
+                  "location": {
+                    "references": [
+                      "var.location"
+                    ]
+                  },
+                  "name": {
+                    "references": [
+                      "var.name"
+                    ]
+                  },
+                  "tags": {
+                    "references": [
+                      "var.tags"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              }
+            ],
+            "variables": {
+              "location": {
+                "description": "Azure region"
+              },
+              "name": {
+                "description": "Name of the resource group"
+              },
+              "tags": {
+                "description": "Tags to apply to resources"
+              }
+            }
+          }
+        },
+        "storage_account": {
+          "source": "./modules/storage_account",
+          "expressions": {
+            "access_tier": {
+              "references": [
+                "var.access_tier"
+              ]
+            },
+            "account_replication_type": {
+              "references": [
+                "var.account_replication_type"
+              ]
+            },
+            "account_tier": {
+              "references": [
+                "var.account_tier"
+              ]
+            },
+            "location": {
+              "references": [
+                "module.resource_group.location",
+                "module.resource_group"
+              ]
+            },
+            "name": {
+              "references": [
+                "var.storage_account_name"
+              ]
+            },
+            "resource_group_name": {
+              "references": [
+                "module.resource_group.name",
+                "module.resource_group"
+              ]
+            },
+            "tags": {
+              "references": [
+                "var.tags"
+              ]
+            }
+          },
+          "module": {
+            "outputs": {
+              "id": {
+                "expression": {
+                  "references": [
+                    "azurerm_storage_account.storageaccount.id",
+                    "azurerm_storage_account.storageaccount"
+                  ]
+                }
+              },
+              "name": {
+                "expression": {
+                  "references": [
+                    "azurerm_storage_account.storageaccount.name",
+                    "azurerm_storage_account.storageaccount"
+                  ]
+                }
+              },
+              "primary_access_key": {
+                "expression": {
+                  "references": [
+                    "azurerm_storage_account.storageaccount.primary_access_key",
+                    "azurerm_storage_account.storageaccount"
+                  ]
+                }
+              },
+              "primary_connection_string": {
+                "expression": {
+                  "references": [
+                    "azurerm_storage_account.storageaccount.primary_connection_string",
+                    "azurerm_storage_account.storageaccount"
+                  ]
+                }
+              }
+            },
+            "resources": [
+              {
+                "address": "azurerm_storage_account.storageaccount",
+                "mode": "managed",
+                "type": "azurerm_storage_account",
+                "name": "storageaccount",
+                "provider_config_key": "azurerm",
+                "expressions": {
+                  "access_tier": {
+                    "references": [
+                      "var.access_tier"
+                    ]
+                  },
+                  "account_replication_type": {
+                    "references": [
+                      "var.account_replication_type"
+                    ]
+                  },
+                  "account_tier": {
+                    "references": [
+                      "var.account_tier"
+                    ]
+                  },
+                  "location": {
+                    "references": [
+                      "var.location"
+                    ]
+                  },
+                  "name": {
+                    "references": [
+                      "var.name"
+                    ]
+                  },
+                  "resource_group_name": {
+                    "references": [
+                      "var.resource_group_name"
+                    ]
+                  },
+                  "tags": {
+                    "references": [
+                      "var.tags"
+                    ]
+                  }
+                },
+                "schema_version": 4
+              }
+            ],
+            "variables": {
+              "access_tier": {
+                "description": "Access tier"
+              },
+              "account_replication_type": {
+                "description": "Replication type"
+              },
+              "account_tier": {
+                "description": "Storage account tier"
+              },
+              "location": {
+                "description": "Azure region"
+              },
+              "name": {
+                "description": "Name of the storage account"
+              },
+              "resource_group_name": {
+                "description": "Name of the resource group"
+              },
+              "tags": {
+                "description": "Tags to apply to resources"
+              }
+            }
+          }
+        },
+        "storage_container": {
+          "source": "./modules/storage_container",
+          "expressions": {
+            "container_access_type": {
+              "references": [
+                "var.container_access_type"
+              ]
+            },
+            "name": {
+              "references": [
+                "var.container_name"
+              ]
+            },
+            "storage_account_name": {
+              "references": [
+                "module.storage_account.name",
+                "module.storage_account"
+              ]
+            }
+          },
+          "module": {
+            "outputs": {
+              "id": {
+                "expression": {
+                  "references": [
+                    "azurerm_storage_container.Storage_Container.id",
+                    "azurerm_storage_container.Storage_Container"
+                  ]
+                }
+              }
+            },
+            "resources": [
+              {
+                "address": "azurerm_storage_container.Storage_Container",
+                "mode": "managed",
+                "type": "azurerm_storage_container",
+                "name": "Storage_Container",
+                "provider_config_key": "azurerm",
+                "expressions": {
+                  "container_access_type": {
+                    "references": [
+                      "var.container_access_type"
+                    ]
+                  },
+                  "name": {
+                    "references": [
+                      "var.name"
+                    ]
+                  },
+                  "storage_account_name": {
+                    "references": [
+                      "var.storage_account_name"
+                    ]
+                  }
+                },
+                "schema_version": 1
+              }
+            ],
+            "variables": {
+              "container_access_type": {
+                "description": "Access type of the storage container"
+              },
+              "name": {
+                "description": "Name of the storage container"
+              },
+              "storage_account_name": {
+                "description": "Name of the storage account"
+              }
+            }
+          }
+        }
+      },
+      "variables": {
+        "access_tier": {
+          "default": "Hot",
+          "description": "Access tier"
+        },
+        "account_replication_type": {
+          "default": "LRS",
+          "description": "Replication type"
+        },
+        "account_tier": {
+          "default": "Standard",
+          "description": "Storage account tier"
+        },
+        "container_access_type": {
+          "default": "private",
+          "description": "Access type of the storage container"
+        },
+        "container_name": {
+          "default": "sre",
+          "description": "Name of the storage container"
+        },
+        "location": {
+          "default": "westeurope",
+          "description": "Azure region"
+        },
+        "resource_group_name": {
+          "default": "sre-challenge-flashenpost",
+          "description": "Name of the resource group"
+        },
+        "storage_account_name": {
+          "default": "srechallengesforfp",
+          "description": "Name of the storage account"
+        },
+        "tags": {
+          "default": {
+            "department": "SRE"
+          },
+          "description": "Tags to apply to resources"
+        }
+      }
+    }
+  },
+  "relevant_attributes": [
+    {
+      "resource": "module.storage_container.azurerm_storage_container.Storage_Container",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "module.resource_group.azurerm_resource_group.Resource_Group",
+      "attribute": [
+        "location"
+      ]
+    },
+    {
+      "resource": "module.resource_group.azurerm_resource_group.Resource_Group",
+      "attribute": [
+        "name"
+      ]
+    },
+    {
+      "resource": "module.storage_account.azurerm_storage_account.storageaccount",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "module.storage_account.azurerm_storage_account.storageaccount",
+      "attribute": [
+        "primary_connection_string"
+      ]
+    },
+    {
+      "resource": "module.storage_account.azurerm_storage_account.storageaccount",
+      "attribute": [
+        "name"
+      ]
+    },
+    {
+      "resource": "module.storage_account.azurerm_storage_account.storageaccount",
+      "attribute": [
+        "primary_access_key"
+      ]
+    }
+  ],
+  "timestamp": "2024-08-04T14:23:40Z"
+}
