@@ -1,5 +1,5 @@
 # DevOps Workflow and Key Components
-![CICD](images/CICD.PNG)
+![CICD](images/CICD.png)
 ## Detailed Steps
 
 ### 1. Developer Workflow
